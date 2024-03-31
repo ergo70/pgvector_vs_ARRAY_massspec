@@ -57,7 +57,7 @@ Datum cosine_similarity_array(PG_FUNCTION_ARGS)
 		ma += fieldA * fieldA;
 		mb += fieldB * fieldB;
 
-		// Auto-vectorized (SIMD instructions, aka. MMX, SSE, AVX, NEON). ONLY when /fp:fast is set
+		// MSVC: Auto-vectorized (SIMD instructions, aka. MMX, SSE, AVX, NEON). ONLY when /fp:fast is set
 		// Replace: Datum* datumsA = NULL, * datumsB = NULL;
 		// With: float4* datumsA = NULL, * datumsB = NULL;
 		//dp += datumsA[i] * datumsB[i];
