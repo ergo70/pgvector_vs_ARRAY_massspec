@@ -9,6 +9,4 @@ CREATE TABLE spectra_index (
 	mz_vector public.vector NULL
 );
 
-CREATE INDEX mz_vector_idx ON spectra_index USING hnsw (mz_vector vector_cosine_ops);
-
-CREATE INDEX num_peaks_idx ON spectra_index (num_peaks);
+CREATE INDEX spectra_index_num_peaks_idx ON massbase.spectra_index USING btree (num_peaks);
